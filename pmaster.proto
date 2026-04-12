@@ -28,6 +28,8 @@ message Accessory {
   int32 salePrice = 13;
   int32 limitBreakPhase = 14;
   string limitBreakConsumptionId = 15;
+  string characterId = 16;
+  string characterGroupId = 17;
 }
 message ActivityFanEvent {
   string id = 1;
@@ -550,6 +552,7 @@ message Costume {
   bool isUserUnavailable = 12;
   string defaultHairId = 13;
   repeated penum.PhotoPoseType impossiblePhotoPoseTypes = 14;
+  bool isDisableAdmin = 15;
 }
 message Decoration {
   string id = 1;
@@ -769,6 +772,7 @@ message Hair {
   string name = 10;
   int64 releaseTime = 11;
   repeated penum.PhotoPoseType impossiblePhotoPoseTypes = 12;
+  bool isDisableAdmin = 13;
 }
 message HierarchyDetailGrade {
   string id = 1;
@@ -1172,6 +1176,7 @@ message Music {
   repeated penum.StageType notSelectableStageTypes = 26;
   string mvAssetId = 27;
   repeated string selectableStageIds = 28;
+  bool is360LiveExist = 29;
 }
 message MusicMasteryReward {
   string musicId = 1;
@@ -1299,6 +1304,8 @@ message PhotoExpression {
   string unlockConditionId = 9;
   repeated string impossibleShootingCharacterIds = 10;
   repeated string impossiblePhotoPoseIds = 11;
+  string sceneLayoutAssetId = 12;
+  repeated int32 characterAmountArray = 13;
 }
 message PhotoExpressionStagePosition {
   string stageId = 1;
@@ -1668,6 +1675,7 @@ message Setting {
   int32 homeTalkDrawTimesPerDay = 120;
   int32 questContestTicketLimitUseCount = 121;
   int32 searchSkillNameCountLimit = 122;
+  int32 staffTrainLimitCount = 123;
   repeated penum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated penum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated penum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1697,6 +1705,7 @@ message Setting {
   int32 companyRankingDisplayNum = 1400;
   int32 companyEnjoyCharacterRankingDisplayNum = 1401;
   int32 companyBulkReceiveMissionCountLimit = 1402;
+  int32 companyUseObtainEnjoyPointItemLimitCount = 1403;
 }
 message ShowcaseFrame {
   string id = 1;
@@ -2249,6 +2258,16 @@ message StaffTraining {
   penum.ParameterType parameterType = 1;
   string name = 2;
 }
+message StaffTrainingReset {
+  string staffTrainingResetGroupId = 1;
+  int32 resetCount = 2;
+  int32 consumptionStoneAmount = 3;
+}
+message StaffTrainingResetGroup {
+  string id = 1;
+  int64 startDatetime = 2;
+  int64 endDatetime = 3;
+}
 message Stage {
   string id = 1;
   penum.StageType type = 2;
@@ -2261,6 +2280,8 @@ message Stage {
   bool isHideWithPhotoShooting = 9;
   string overrideAssetVariationId = 10;
   repeated string additionalAssetIds = 11;
+  repeated pmaster.PhotoPanoramaCameraPosition cameraPositions = 12;
+  string openingAssetId = 13;
 }
 message StatusEffectName {
   penum.StatusEffectType statusEffectType = 1;
@@ -2674,6 +2695,10 @@ message RewardResource {
   penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int32 amount = 3;
+}
+message PhotoPanoramaCameraPosition {
+  string name = 1;
+  int32 index = 2;
 }
 message StoryBranchChoice {
   int32 index = 1;

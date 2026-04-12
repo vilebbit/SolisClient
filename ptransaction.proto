@@ -484,6 +484,9 @@ message UserStaff {
   int32 level = 2;
   int32 levelLimitBreakRank = 3;
 }
+message UserStaffTrainingReset {
+  int32 staffTrainingResetCount = 1;
+}
 message UserTotalCount {
   int64 loginCount = 1;
   int64 marketExchangeCount = 3;

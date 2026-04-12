@@ -603,6 +603,12 @@ message ExternalRewardInfo {
   string rewardId = 2;
   bool isReceived = 3;
 }
+message ExtraCharacterInfo {
+  int32 position = 1;
+  string characterId = 2;
+  string costumeId = 3;
+  string hairId = 4;
+}
 message ExtraStoryInfo {
   string id = 1;
   bool unlocked = 2;
@@ -683,6 +689,21 @@ message FavoriteCardInfo {
   int32 rarity = 2;
   penum.CardDisplayType displayType = 3;
   int32 evolutionLevel = 4;
+}
+message FishHeavenRankingInfo {
+  string userId = 1;
+  string name = 2;
+  int32 rank = 3;
+  int64 score = 4;
+  string emblemId = 5;
+}
+message FishHeavenStartMiniGameResponse {
+  string playerCostumeId = 1;
+  int32 selfRank = 2;
+  int32 tutorialClearScore = 3;
+  repeated api.FishHeavenDifficultyInfo difficultyInfos = 4;
+  api.DokanInfo tipsDokanInfo = 5;
+  api.CommonResponse commonResponse = 9999;
 }
 message GachaButtonInfo {
   string id = 1;
@@ -955,6 +976,8 @@ message HomeEnterResponse {
   bool isUnclearedPlayableQuest = 47;
   repeated api.PhotoExpression photoExpressions = 48;
   api.HomeSatelliteInfo satelliteInfo = 49;
+  api.HomeFishHeavenInfo homeFishHeavenInfo = 50;
+  repeated api.WarningInfo warningInfos = 51;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -1705,6 +1728,15 @@ message PhotoListSpecialShootingResponse {
 message PhotoMusic {
   string musicId = 1;
   bool isUnlocked = 2;
+}
+message PhotoPanoramaMusic {
+  string musicId = 1;
+  string stageId = 2;
+  bool isUnlocked = 3;
+  string unlockConditionId = 4;
+  string assetId = 5;
+  int32 order = 6;
+  string viewConditionId = 7;
 }
 message PhotoStage {
   string stageId = 1;
@@ -2922,6 +2954,7 @@ message LiveUserDeck {
   string deckName = 1;
   repeated api.LiveDeckCard cards = 2;
   repeated api.LiveDeckCardSkill bonusSkills = 3;
+  repeated api.ExtraCharacterInfo extraCharacterInfos = 4;
 }
 message LiveChart {
   int32 number = 1;
@@ -3196,6 +3229,11 @@ message MosaicProgressInfo {
   int64 totalConsumptionAmount = 1;
   int32 currentReceivedTotalConsumptionRewardNumber = 2;
 }
+message PhotoCreateShootingParam {
+  string photoImageId = 1;
+  string itemId = 2;
+  string mainCharacterId = 3;
+}
 message CommonResponse {
   api.UpdatedData updatedData = 1;
   api.DeletedData deletedData = 2;
@@ -3251,6 +3289,7 @@ message UpdatedData {
   repeated ptransaction.UserShowcaseMyset showcaseMysets = 48;
   repeated ptransaction.UserTourArea tourAreas = 49;
   repeated ptransaction.UserPhotoPose photoPoses = 50;
+  ptransaction.UserStaffTrainingReset staffTrainingReset = 51;
 }
 message DeletedData {
   repeated ptransaction.UserItem items = 1;
@@ -3318,6 +3357,7 @@ message CompanyReceiveEnjoyCharacterLevelRewardsResponse {
 message CompanyUseObtainEnjoyPointItemRequest {
   string characterId = 1;
   string itemId = 2;
+  int32 consumptionItemAmount = 3;
 }
 message CompanyUseObtainEnjoyPointItemResponse {
   api.CommonResponse commonResponse = 9999;
@@ -3669,6 +3709,7 @@ message DivisionMoveResponse {
 }
 message DokanListResponse {
   repeated api.DokanInfo dokanInfos = 1;
+  bool isNeedReCall = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message DokanSetWatchedRequest {
@@ -3850,6 +3891,36 @@ message ExerciseListAssetRequest {
 message ExerciseListAssetResponse {
   repeated api.LiveCharacterAssetInfo characterAssets = 1;
   api.CommonResponse commonResponse = 9999;
+}
+message FishHeavenTopResponse {
+  int64 startDateTime = 1;
+  int64 endDateTime = 2;
+  int64 selfHighestScore = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message FishHeavenClearMiniGameTutorialResponse {
+  api.DokanInfo clearMiniGameTutorialAfterDokanInfo = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message FishHeavenFinishMiniGameRequest {
+  int64 score = 1;
+}
+message FishHeavenFinishMiniGameResponse {
+  int32 selfRank = 1;
+  bool isHighestScore = 2;
+  bool isHigherRank = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message FishHeavenListRankingResponse {
+  int32 selfRank = 1;
+  repeated api.FishHeavenRankingInfo rankingInfos = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message FishHeavenDifficultyInfo {
+  int32 score = 1;
+  float duration = 2;
+  float interval = 3;
+  float bgmSpeed = 4;
 }
 message ForumListThreadReplyRequest {
   string threadId = 1;
@@ -4496,6 +4567,14 @@ message HomeSatelliteInfo {
   string buttonLabel = 6;
   bool isGeneratedCode = 7;
   string websiteUrl = 8;
+}
+message HomeFishHeavenInfo {
+  bool isTutorialTransition = 1;
+  api.DokanInfo dokanInfo = 2;
+}
+message WarningInfo {
+  string warningId = 1;
+  string message = 2;
 }
 message InviteTopResponse {
   string inviteCode = 1;
@@ -5200,6 +5279,13 @@ message MasterGetHelpCategoryRequest {
 message MasterGetHelpCategoryResponse {
   repeated pmaster.HelpCategory helpCategories = 1;
 }
+message MasterGetVersionRequest {
+  string token1 = 1;
+  string token2 = 2;
+}
+message MasterGetVersionResponse {
+  string version = 1;
+}
 message MessageListGroupResponse {
   repeated api.MessageGroupInfo infos = 1;
   api.CommonResponse commonResponse = 9999;
@@ -5380,6 +5466,7 @@ message CheckOption {
   bool disableCheckLoginToday = 5;
   bool disableCheckMaintenance = 6;
   bool disableCheckAppVersion = 7;
+  bool disableCheckPurchasedWebstore = 8;
 }
 message ErrorOption {
   repeated penum.ErrorCode errorCodes = 1;
@@ -5490,11 +5577,6 @@ message PhotoCreateShootingsRequest {
   repeated string hairIds = 7;
   repeated api.PhotoCreateShootingParam createShootingParams = 8;
   int32 manualCount = 9;
-}
-message PhotoCreateShootingParam {
-  string photoImageId = 1;
-  string itemId = 2;
-  string mainCharacterId = 3;
 }
 message PhotoCreateShootingsResponse {
   repeated ptransaction.UserPhoto photos = 1;
@@ -5616,6 +5698,9 @@ message PhotoCheckExpressionShootingRequest {
   string characterId = 2;
   string costumeId = 3;
   string hairId = 4;
+  repeated string characterIds = 5;
+  repeated string costumeIds = 6;
+  repeated string hairIds = 7;
 }
 message PhotoCheckExpressionShootingResponse {
   api.CommonResponse commonResponse = 9999;
@@ -5627,6 +5712,9 @@ message PhotoCreateExpressionShootingsRequest {
   string hairId = 4;
   repeated api.PhotoCreateExpressionShootingParam createExpressionShootingParams = 7;
   int32 manualCount = 8;
+  repeated string characterIds = 9;
+  repeated string costumeIds = 10;
+  repeated string hairIds = 11;
 }
 message PhotoCreateExpressionShootingsResponse {
   repeated ptransaction.UserPhoto photos = 1;
@@ -5640,6 +5728,11 @@ message PhotoCreateExpressionShootingParam {
   string photoPoseId = 4;
   string photoFacialId = 5;
   penum.PhotoLookingType photoLookingType = 6;
+  string mainCharacterId = 7;
+  repeated string characterIds = 8;
+  repeated string photoPoseIds = 9;
+  repeated string photoFacialIds = 10;
+  repeated penum.PhotoLookingType photoLookingTypes = 11;
 }
 message PhotoDokanInfo {
   repeated api.DokanInfo expressions = 1;
@@ -5733,6 +5826,36 @@ message PhotoContestSectionAdvanceGuideInfo {
   int32 number = 1;
   string description = 2;
   bool isSatisfied = 3;
+}
+message PhotoPanoramaListResponse {
+  repeated api.PhotoPanoramaMusic musics = 1;
+  repeated api.DokanInfo dokanInfos = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoPanoramaCheckShootingRequest {
+  string photoMusicId = 1;
+  repeated string characterIds = 2;
+  repeated string costumeIds = 3;
+  repeated string hairIds = 4;
+}
+message PhotoPanoramaCheckShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoPanoramaCreateShootingsRequest {
+  string photoMusicId = 1;
+  repeated string characterIds = 2;
+  repeated string costumeIds = 3;
+  repeated string hairIds = 4;
+  repeated api.PhotoCreateShootingParam createShootingParams = 5;
+  int32 manualCount = 6;
+  repeated penum.PanoramaCameraType cameraTypes = 7;
+  string startCharacterId = 8;
+  int32 startCameraPositionIndex = 9;
+}
+message PhotoPanoramaCreateShootingsResponse {
+  repeated ptransaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
 }
 message ProfileFindUserRequest {
   string userId = 1;
@@ -5888,6 +6011,7 @@ message QuestStartRequest {
   int32 playCount = 5;
   repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 6;
   string buddyDeckName = 7;
+  bool isAuto = 8;
 }
 message QuestStartBulkDailyResponse {
   repeated api.QuestBulkDailyResultInfo results = 1;
@@ -6304,6 +6428,8 @@ message ShelfSavePhotoParam {
 message ShopListResponse {
   repeated api.ShopInfo shops = 1;
   repeated api.DokanInfo dokanInfos = 2;
+  api.ShopBannerInfo bannerInfo = 3;
+  api.ShopBannerInfo topBannerInfo = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message ShopListItemRequest {
@@ -6405,6 +6531,10 @@ message ShopTryOnRequest {
 }
 message ShopTryOnResponse {
   api.CommonResponse commonResponse = 9999;
+}
+message ShopBannerInfo {
+  string assetId = 1;
+  string linkDetail = 2;
 }
 message ShowcaseSaveRequest {
   int32 number = 1;
@@ -6562,6 +6692,7 @@ message ShowcaseToyArrangementInfo {
 }
 message StaffTrainRequest {
   penum.ParameterType parameterType = 1;
+  int64 trainCount = 2;
 }
 message StaffTrainResponse {
   api.CommonResponse commonResponse = 9999;
@@ -6570,6 +6701,10 @@ message StaffLevelLimitBreakRequest {
   penum.ParameterType parameterType = 1;
 }
 message StaffLevelLimitBreakResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message StaffResetResponse {
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message StoryReadRequest {
@@ -7030,6 +7165,7 @@ message UserGetResponse {
   repeated ptransaction.UserShowcaseMyset showcaseMysets = 48;
   repeated ptransaction.UserTourArea tourAreas = 49;
   repeated ptransaction.UserPhotoPose photoPoses = 50;
+  ptransaction.UserStaffTrainingReset staffTrainingReset = 51;
   ptransaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {
@@ -7042,6 +7178,12 @@ message UserProvideExternalRewardRequest {
   string externalRewardId = 1;
 }
 message UserProvideExternalRewardResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message WarningSetDisplayedRequest {
+  repeated string warningIds = 1;
+}
+message WarningSetDisplayedResponse {
   api.CommonResponse commonResponse = 9999;
 }
 
@@ -7194,6 +7336,13 @@ service Exercise {
   rpc Start(ExerciseStartRequest) returns (ExerciseStartResponse);
   rpc ListAsset(ExerciseListAssetRequest) returns (ExerciseListAssetResponse);
 }
+service FishHeaven {
+  rpc Top(Empty) returns (FishHeavenTopResponse);
+  rpc ClearMiniGameTutorial(Empty) returns (FishHeavenClearMiniGameTutorialResponse);
+  rpc StartMiniGame(Empty) returns (FishHeavenStartMiniGameResponse);
+  rpc FinishMiniGame(FishHeavenFinishMiniGameRequest) returns (FishHeavenFinishMiniGameResponse);
+  rpc ListRanking(Empty) returns (FishHeavenListRankingResponse);
+}
 service Forum {
   rpc ListThread(Empty) returns (ForumListThreadResponse);
   rpc ListThreadReply(ForumListThreadReplyRequest) returns (ForumListThreadReplyResponse);
@@ -7344,6 +7493,7 @@ service Master {
   rpc Rule(MasterRuleRequest) returns (MasterRuleResponse);
   rpc GetInquiryTemplate(MasterGetInquiryTemplateRequest) returns (MasterGetInquiryTemplateResponse);
   rpc GetHelpCategory(MasterGetHelpCategoryRequest) returns (MasterGetHelpCategoryResponse);
+  rpc GetVersion(MasterGetVersionRequest) returns (MasterGetVersionResponse);
 }
 service Message {
   rpc ListGroup(Empty) returns (MessageListGroupResponse);
@@ -7417,6 +7567,11 @@ service Photo {
   rpc CreateCardStoryShootings(PhotoCreateCardStoryShootingsRequest) returns (PhotoCreateCardStoryShootingsResponse);
   rpc CheckExpressionShooting(PhotoCheckExpressionShootingRequest) returns (PhotoCheckExpressionShootingResponse);
   rpc CreateExpressionShootings(PhotoCreateExpressionShootingsRequest) returns (PhotoCreateExpressionShootingsResponse);
+}
+service PhotoPanorama {
+  rpc List(Empty) returns (PhotoPanoramaListResponse);
+  rpc CheckShooting(PhotoPanoramaCheckShootingRequest) returns (PhotoPanoramaCheckShootingResponse);
+  rpc CreateShootings(PhotoPanoramaCreateShootingsRequest) returns (PhotoPanoramaCreateShootingsResponse);
 }
 service Profile {
   rpc Top(Empty) returns (ProfileTopResponse);
@@ -7530,6 +7685,7 @@ service Showcase {
 service Staff {
   rpc Train(StaffTrainRequest) returns (StaffTrainResponse);
   rpc LevelLimitBreak(StaffLevelLimitBreakRequest) returns (StaffLevelLimitBreakResponse);
+  rpc Reset(Empty) returns (StaffResetResponse);
 }
 service Story {
   rpc Read(StoryReadRequest) returns (StoryReadResponse);
@@ -7579,4 +7735,7 @@ service Tutorial {
 service User {
   rpc Get(Empty) returns (UserGetResponse);
   rpc ProvideExternalReward(UserProvideExternalRewardRequest) returns (UserProvideExternalRewardResponse);
+}
+service Warning {
+  rpc SetDisplayed(WarningSetDisplayedRequest) returns (WarningSetDisplayedResponse);
 }

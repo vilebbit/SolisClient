@@ -5308,6 +5308,250 @@ class Exercise(object):
             _registered_method=True)
 
 
+class FishHeavenStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.FishHeaven/Top',
+                request_serializer=Empty_serializer,
+                response_deserializer=FishHeavenTopResponse_deserializer,
+                _registered_method=True)
+        self.ClearMiniGameTutorial = channel.unary_unary(
+                '/api.FishHeaven/ClearMiniGameTutorial',
+                request_serializer=Empty_serializer,
+                response_deserializer=FishHeavenClearMiniGameTutorialResponse_deserializer,
+                _registered_method=True)
+        self.StartMiniGame = channel.unary_unary(
+                '/api.FishHeaven/StartMiniGame',
+                request_serializer=Empty_serializer,
+                response_deserializer=FishHeavenStartMiniGameResponse_deserializer,
+                _registered_method=True)
+        self.FinishMiniGame = channel.unary_unary(
+                '/api.FishHeaven/FinishMiniGame',
+                request_serializer=FishHeavenFinishMiniGameRequest_serializer,
+                response_deserializer=FishHeavenFinishMiniGameResponse_deserializer,
+                _registered_method=True)
+        self.ListRanking = channel.unary_unary(
+                '/api.FishHeaven/ListRanking',
+                request_serializer=Empty_serializer,
+                response_deserializer=FishHeavenListRankingResponse_deserializer,
+                _registered_method=True)
+
+
+class FishHeavenServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ClearMiniGameTutorial(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StartMiniGame(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FinishMiniGame(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRanking(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_FishHeavenServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=FishHeavenTopResponse_serializer,
+            ),
+            'ClearMiniGameTutorial': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClearMiniGameTutorial,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=FishHeavenClearMiniGameTutorialResponse_serializer,
+            ),
+            'StartMiniGame': grpc.unary_unary_rpc_method_handler(
+                    servicer.StartMiniGame,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=FishHeavenStartMiniGameResponse_serializer,
+            ),
+            'FinishMiniGame': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishMiniGame,
+                    request_deserializer=FishHeavenFinishMiniGameRequest_deserializer,
+                    response_serializer=FishHeavenFinishMiniGameResponse_serializer,
+            ),
+            'ListRanking': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRanking,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=FishHeavenListRankingResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.FishHeaven', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.FishHeaven', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class FishHeaven(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/Top',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenTopResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ClearMiniGameTutorial(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/ClearMiniGameTutorial',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenClearMiniGameTutorialResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def StartMiniGame(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/StartMiniGame',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenStartMiniGameResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def FinishMiniGame(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/FinishMiniGame',
+            papi__pb2.FishHeavenFinishMiniGameRequest.SerializeToString,
+            papi__pb2.FishHeavenFinishMiniGameResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListRanking(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/ListRanking',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenListRankingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class ForumStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -10489,6 +10733,11 @@ class MasterStub(object):
                 request_serializer=MasterGetHelpCategoryRequest_serializer,
                 response_deserializer=MasterGetHelpCategoryResponse_deserializer,
                 _registered_method=True)
+        self.GetVersion = channel.unary_unary(
+                '/api.Master/GetVersion',
+                request_serializer=MasterGetVersionRequest_serializer,
+                response_deserializer=MasterGetVersionResponse_deserializer,
+                _registered_method=True)
 
 
 class MasterServicer(object):
@@ -10518,6 +10767,12 @@ class MasterServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetVersion(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MasterServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -10540,6 +10795,11 @@ def add_MasterServicer_to_server(servicer, server):
                     servicer.GetHelpCategory,
                     request_deserializer=MasterGetHelpCategoryRequest_deserializer,
                     response_serializer=MasterGetHelpCategoryResponse_serializer,
+            ),
+            'GetVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetVersion,
+                    request_deserializer=MasterGetVersionRequest_deserializer,
+                    response_serializer=MasterGetVersionResponse_serializer,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -10650,6 +10910,33 @@ class Master(object):
             '/api.Master/GetHelpCategory',
             papi__pb2.MasterGetHelpCategoryRequest.SerializeToString,
             papi__pb2.MasterGetHelpCategoryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Master/GetVersion',
+            papi__pb2.MasterGetVersionRequest.SerializeToString,
+            papi__pb2.MasterGetVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13390,6 +13677,164 @@ class Photo(object):
             '/api.Photo/CreateExpressionShootings',
             papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
             papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class PhotoPanoramaStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.List = channel.unary_unary(
+                '/api.PhotoPanorama/List',
+                request_serializer=Empty_serializer,
+                response_deserializer=PhotoPanoramaListResponse_deserializer,
+                _registered_method=True)
+        self.CheckShooting = channel.unary_unary(
+                '/api.PhotoPanorama/CheckShooting',
+                request_serializer=PhotoPanoramaCheckShootingRequest_serializer,
+                response_deserializer=PhotoPanoramaCheckShootingResponse_deserializer,
+                _registered_method=True)
+        self.CreateShootings = channel.unary_unary(
+                '/api.PhotoPanorama/CreateShootings',
+                request_serializer=PhotoPanoramaCreateShootingsRequest_serializer,
+                response_deserializer=PhotoPanoramaCreateShootingsResponse_deserializer,
+                _registered_method=True)
+
+
+class PhotoPanoramaServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def List(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckShooting(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateShootings(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_PhotoPanoramaServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=PhotoPanoramaListResponse_serializer,
+            ),
+            'CheckShooting': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckShooting,
+                    request_deserializer=PhotoPanoramaCheckShootingRequest_deserializer,
+                    response_serializer=PhotoPanoramaCheckShootingResponse_serializer,
+            ),
+            'CreateShootings': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateShootings,
+                    request_deserializer=PhotoPanoramaCreateShootingsRequest_deserializer,
+                    response_serializer=PhotoPanoramaCreateShootingsResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.PhotoPanorama', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.PhotoPanorama', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class PhotoPanorama(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def List(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/List',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PhotoPanoramaListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckShooting(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/CheckShooting',
+            papi__pb2.PhotoPanoramaCheckShootingRequest.SerializeToString,
+            papi__pb2.PhotoPanoramaCheckShootingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateShootings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/CreateShootings',
+            papi__pb2.PhotoPanoramaCreateShootingsRequest.SerializeToString,
+            papi__pb2.PhotoPanoramaCreateShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17537,6 +17982,11 @@ class StaffStub(object):
                 request_serializer=StaffLevelLimitBreakRequest_serializer,
                 response_deserializer=StaffLevelLimitBreakResponse_deserializer,
                 _registered_method=True)
+        self.Reset = channel.unary_unary(
+                '/api.Staff/Reset',
+                request_serializer=Empty_serializer,
+                response_deserializer=StaffResetResponse_deserializer,
+                _registered_method=True)
 
 
 class StaffServicer(object):
@@ -17554,6 +18004,12 @@ class StaffServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Reset(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_StaffServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -17566,6 +18022,11 @@ def add_StaffServicer_to_server(servicer, server):
                     servicer.LevelLimitBreak,
                     request_deserializer=StaffLevelLimitBreakRequest_deserializer,
                     response_serializer=StaffLevelLimitBreakResponse_serializer,
+            ),
+            'Reset': grpc.unary_unary_rpc_method_handler(
+                    servicer.Reset,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=StaffResetResponse_serializer,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -17622,6 +18083,33 @@ class Staff(object):
             '/api.Staff/LevelLimitBreak',
             papi__pb2.StaffLevelLimitBreakRequest.SerializeToString,
             papi__pb2.StaffLevelLimitBreakResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Reset(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Staff/Reset',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.StaffResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19396,6 +19884,78 @@ class User(object):
             timeout,
             metadata,
             _registered_method=True)
+
+
+class WarningStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.SetDisplayed = channel.unary_unary(
+                '/api.Warning/SetDisplayed',
+                request_serializer=WarningSetDisplayedRequest_serializer,
+                response_deserializer=WarningSetDisplayedResponse_deserializer,
+                _registered_method=True)
+
+
+class WarningServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def SetDisplayed(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WarningServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'SetDisplayed': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDisplayed,
+                    request_deserializer=WarningSetDisplayedRequest_deserializer,
+                    response_serializer=WarningSetDisplayedResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Warning', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.Warning', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Warning(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def SetDisplayed(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Warning/SetDisplayed',
+            papi__pb2.WarningSetDisplayedRequest.SerializeToString,
+            papi__pb2.WarningSetDisplayedResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 def AccessoryEnhanceRequest_serializer(message):
     origin = papi__pb2.AccessoryEnhanceRequest.SerializeToString(message)
     return serialize(origin)
@@ -20059,6 +20619,36 @@ def ExerciseListAssetResponse_serializer(message):
 def Empty_serializer(message):
     origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenFinishMiniGameRequest_serializer(message):
+    origin = papi__pb2.FishHeavenFinishMiniGameRequest.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenTopResponse_serializer(message):
+    origin = papi__pb2.FishHeavenTopResponse.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenClearMiniGameTutorialResponse_serializer(message):
+    origin = papi__pb2.FishHeavenClearMiniGameTutorialResponse.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenStartMiniGameResponse_serializer(message):
+    origin = papi__pb2.FishHeavenStartMiniGameResponse.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenFinishMiniGameResponse_serializer(message):
+    origin = papi__pb2.FishHeavenFinishMiniGameResponse.SerializeToString(message)
+    return serialize(origin)
+def FishHeavenListRankingResponse_serializer(message):
+    origin = papi__pb2.FishHeavenListRankingResponse.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
 def ForumListThreadReplyRequest_serializer(message):
     origin = papi__pb2.ForumListThreadReplyRequest.SerializeToString(message)
     return serialize(origin)
@@ -20710,6 +21300,9 @@ def MasterGetInquiryTemplateRequest_serializer(message):
 def MasterGetHelpCategoryRequest_serializer(message):
     origin = papi__pb2.MasterGetHelpCategoryRequest.SerializeToString(message)
     return serialize(origin)
+def MasterGetVersionRequest_serializer(message):
+    origin = papi__pb2.MasterGetVersionRequest.SerializeToString(message)
+    return serialize(origin)
 def MasterGetResponse_serializer(message):
     origin = papi__pb2.MasterGetResponse.SerializeToString(message)
     return serialize(origin)
@@ -20721,6 +21314,9 @@ def MasterGetInquiryTemplateResponse_serializer(message):
     return serialize(origin)
 def MasterGetHelpCategoryResponse_serializer(message):
     origin = papi__pb2.MasterGetHelpCategoryResponse.SerializeToString(message)
+    return serialize(origin)
+def MasterGetVersionResponse_serializer(message):
+    origin = papi__pb2.MasterGetVersionResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
     origin = papi__pb2.Empty.SerializeToString(message)
@@ -21075,6 +21671,24 @@ def PhotoCheckExpressionShootingResponse_serializer(message):
     return serialize(origin)
 def PhotoCreateExpressionShootingsResponse_serializer(message):
     origin = papi__pb2.PhotoCreateExpressionShootingsResponse.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def PhotoPanoramaCheckShootingRequest_serializer(message):
+    origin = papi__pb2.PhotoPanoramaCheckShootingRequest.SerializeToString(message)
+    return serialize(origin)
+def PhotoPanoramaCreateShootingsRequest_serializer(message):
+    origin = papi__pb2.PhotoPanoramaCreateShootingsRequest.SerializeToString(message)
+    return serialize(origin)
+def PhotoPanoramaListResponse_serializer(message):
+    origin = papi__pb2.PhotoPanoramaListResponse.SerializeToString(message)
+    return serialize(origin)
+def PhotoPanoramaCheckShootingResponse_serializer(message):
+    origin = papi__pb2.PhotoPanoramaCheckShootingResponse.SerializeToString(message)
+    return serialize(origin)
+def PhotoPanoramaCreateShootingsResponse_serializer(message):
+    origin = papi__pb2.PhotoPanoramaCreateShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
     origin = papi__pb2.Empty.SerializeToString(message)
@@ -21616,11 +22230,17 @@ def StaffTrainRequest_serializer(message):
 def StaffLevelLimitBreakRequest_serializer(message):
     origin = papi__pb2.StaffLevelLimitBreakRequest.SerializeToString(message)
     return serialize(origin)
+def Empty_serializer(message):
+    origin = papi__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
 def StaffTrainResponse_serializer(message):
     origin = papi__pb2.StaffTrainResponse.SerializeToString(message)
     return serialize(origin)
 def StaffLevelLimitBreakResponse_serializer(message):
     origin = papi__pb2.StaffLevelLimitBreakResponse.SerializeToString(message)
+    return serialize(origin)
+def StaffResetResponse_serializer(message):
+    origin = papi__pb2.StaffResetResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadRequest_serializer(message):
     origin = papi__pb2.StoryReadRequest.SerializeToString(message)
@@ -21843,6 +22463,12 @@ def UserGetResponse_serializer(message):
     return serialize(origin)
 def UserProvideExternalRewardResponse_serializer(message):
     origin = papi__pb2.UserProvideExternalRewardResponse.SerializeToString(message)
+    return serialize(origin)
+def WarningSetDisplayedRequest_serializer(message):
+    origin = papi__pb2.WarningSetDisplayedRequest.SerializeToString(message)
+    return serialize(origin)
+def WarningSetDisplayedResponse_serializer(message):
+    origin = papi__pb2.WarningSetDisplayedResponse.SerializeToString(message)
     return serialize(origin)
 def AccessoryEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
@@ -22504,6 +23130,36 @@ def ExerciseStartRequest_deserializer(raw):
 def ExerciseListAssetRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.ExerciseListAssetRequest.FromString(data)
+def FishHeavenTopResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenTopResponse.FromString(data)
+def FishHeavenClearMiniGameTutorialResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenClearMiniGameTutorialResponse.FromString(data)
+def FishHeavenStartMiniGameResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenStartMiniGameResponse.FromString(data)
+def FishHeavenFinishMiniGameResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenFinishMiniGameResponse.FromString(data)
+def FishHeavenListRankingResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenListRankingResponse.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
+def FishHeavenFinishMiniGameRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.FishHeavenFinishMiniGameRequest.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
 def ForumListThreadResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.ForumListThreadResponse.FromString(data)
@@ -23158,6 +23814,9 @@ def MasterGetInquiryTemplateResponse_deserializer(raw):
 def MasterGetHelpCategoryResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.MasterGetHelpCategoryResponse.FromString(data)
+def MasterGetVersionResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.MasterGetVersionResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.Empty.FromString(data)
@@ -23170,6 +23829,9 @@ def MasterGetInquiryTemplateRequest_deserializer(raw):
 def MasterGetHelpCategoryRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.MasterGetHelpCategoryRequest.FromString(data)
+def MasterGetVersionRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.MasterGetVersionRequest.FromString(data)
 def MessageListGroupResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.MessageListGroupResponse.FromString(data)
@@ -23524,6 +24186,24 @@ def PhotoCheckExpressionShootingRequest_deserializer(raw):
 def PhotoCreateExpressionShootingsRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.PhotoCreateExpressionShootingsRequest.FromString(data)
+def PhotoPanoramaListResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoPanoramaListResponse.FromString(data)
+def PhotoPanoramaCheckShootingResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoPanoramaCheckShootingResponse.FromString(data)
+def PhotoPanoramaCreateShootingsResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoPanoramaCreateShootingsResponse.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
+def PhotoPanoramaCheckShootingRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoPanoramaCheckShootingRequest.FromString(data)
+def PhotoPanoramaCreateShootingsRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoPanoramaCreateShootingsRequest.FromString(data)
 def ProfileTopResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.ProfileTopResponse.FromString(data)
@@ -24064,12 +24744,18 @@ def StaffTrainResponse_deserializer(raw):
 def StaffLevelLimitBreakResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.StaffLevelLimitBreakResponse.FromString(data)
+def StaffResetResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.StaffResetResponse.FromString(data)
 def StaffTrainRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.StaffTrainRequest.FromString(data)
 def StaffLevelLimitBreakRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.StaffLevelLimitBreakRequest.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.Empty.FromString(data)
 def StoryReadResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.StoryReadResponse.FromString(data)
@@ -24292,3 +24978,9 @@ def Empty_deserializer(raw):
 def UserProvideExternalRewardRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.UserProvideExternalRewardRequest.FromString(data)
+def WarningSetDisplayedResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.WarningSetDisplayedResponse.FromString(data)
+def WarningSetDisplayedRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.WarningSetDisplayedRequest.FromString(data)

@@ -5306,6 +5306,250 @@ class Exercise(object):
             _registered_method=True)
 
 
+class FishHeavenStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.FishHeaven/Top',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.FishHeavenTopResponse.FromString,
+                _registered_method=True)
+        self.ClearMiniGameTutorial = channel.unary_unary(
+                '/api.FishHeaven/ClearMiniGameTutorial',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.FishHeavenClearMiniGameTutorialResponse.FromString,
+                _registered_method=True)
+        self.StartMiniGame = channel.unary_unary(
+                '/api.FishHeaven/StartMiniGame',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.FishHeavenStartMiniGameResponse.FromString,
+                _registered_method=True)
+        self.FinishMiniGame = channel.unary_unary(
+                '/api.FishHeaven/FinishMiniGame',
+                request_serializer=papi__pb2.FishHeavenFinishMiniGameRequest.SerializeToString,
+                response_deserializer=papi__pb2.FishHeavenFinishMiniGameResponse.FromString,
+                _registered_method=True)
+        self.ListRanking = channel.unary_unary(
+                '/api.FishHeaven/ListRanking',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.FishHeavenListRankingResponse.FromString,
+                _registered_method=True)
+
+
+class FishHeavenServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ClearMiniGameTutorial(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StartMiniGame(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FinishMiniGame(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRanking(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_FishHeavenServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.FishHeavenTopResponse.SerializeToString,
+            ),
+            'ClearMiniGameTutorial': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClearMiniGameTutorial,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.FishHeavenClearMiniGameTutorialResponse.SerializeToString,
+            ),
+            'StartMiniGame': grpc.unary_unary_rpc_method_handler(
+                    servicer.StartMiniGame,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.FishHeavenStartMiniGameResponse.SerializeToString,
+            ),
+            'FinishMiniGame': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishMiniGame,
+                    request_deserializer=papi__pb2.FishHeavenFinishMiniGameRequest.FromString,
+                    response_serializer=papi__pb2.FishHeavenFinishMiniGameResponse.SerializeToString,
+            ),
+            'ListRanking': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRanking,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.FishHeavenListRankingResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.FishHeaven', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.FishHeaven', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class FishHeaven(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/Top',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenTopResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ClearMiniGameTutorial(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/ClearMiniGameTutorial',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenClearMiniGameTutorialResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def StartMiniGame(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/StartMiniGame',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenStartMiniGameResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def FinishMiniGame(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/FinishMiniGame',
+            papi__pb2.FishHeavenFinishMiniGameRequest.SerializeToString,
+            papi__pb2.FishHeavenFinishMiniGameResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListRanking(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.FishHeaven/ListRanking',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FishHeavenListRankingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class ForumStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -10487,6 +10731,11 @@ class MasterStub(object):
                 request_serializer=papi__pb2.MasterGetHelpCategoryRequest.SerializeToString,
                 response_deserializer=papi__pb2.MasterGetHelpCategoryResponse.FromString,
                 _registered_method=True)
+        self.GetVersion = channel.unary_unary(
+                '/api.Master/GetVersion',
+                request_serializer=papi__pb2.MasterGetVersionRequest.SerializeToString,
+                response_deserializer=papi__pb2.MasterGetVersionResponse.FromString,
+                _registered_method=True)
 
 
 class MasterServicer(object):
@@ -10516,6 +10765,12 @@ class MasterServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetVersion(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MasterServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -10538,6 +10793,11 @@ def add_MasterServicer_to_server(servicer, server):
                     servicer.GetHelpCategory,
                     request_deserializer=papi__pb2.MasterGetHelpCategoryRequest.FromString,
                     response_serializer=papi__pb2.MasterGetHelpCategoryResponse.SerializeToString,
+            ),
+            'GetVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetVersion,
+                    request_deserializer=papi__pb2.MasterGetVersionRequest.FromString,
+                    response_serializer=papi__pb2.MasterGetVersionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -10648,6 +10908,33 @@ class Master(object):
             '/api.Master/GetHelpCategory',
             papi__pb2.MasterGetHelpCategoryRequest.SerializeToString,
             papi__pb2.MasterGetHelpCategoryResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Master/GetVersion',
+            papi__pb2.MasterGetVersionRequest.SerializeToString,
+            papi__pb2.MasterGetVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13388,6 +13675,164 @@ class Photo(object):
             '/api.Photo/CreateExpressionShootings',
             papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
             papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class PhotoPanoramaStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.List = channel.unary_unary(
+                '/api.PhotoPanorama/List',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.PhotoPanoramaListResponse.FromString,
+                _registered_method=True)
+        self.CheckShooting = channel.unary_unary(
+                '/api.PhotoPanorama/CheckShooting',
+                request_serializer=papi__pb2.PhotoPanoramaCheckShootingRequest.SerializeToString,
+                response_deserializer=papi__pb2.PhotoPanoramaCheckShootingResponse.FromString,
+                _registered_method=True)
+        self.CreateShootings = channel.unary_unary(
+                '/api.PhotoPanorama/CreateShootings',
+                request_serializer=papi__pb2.PhotoPanoramaCreateShootingsRequest.SerializeToString,
+                response_deserializer=papi__pb2.PhotoPanoramaCreateShootingsResponse.FromString,
+                _registered_method=True)
+
+
+class PhotoPanoramaServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def List(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckShooting(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateShootings(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_PhotoPanoramaServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.PhotoPanoramaListResponse.SerializeToString,
+            ),
+            'CheckShooting': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckShooting,
+                    request_deserializer=papi__pb2.PhotoPanoramaCheckShootingRequest.FromString,
+                    response_serializer=papi__pb2.PhotoPanoramaCheckShootingResponse.SerializeToString,
+            ),
+            'CreateShootings': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateShootings,
+                    request_deserializer=papi__pb2.PhotoPanoramaCreateShootingsRequest.FromString,
+                    response_serializer=papi__pb2.PhotoPanoramaCreateShootingsResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.PhotoPanorama', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.PhotoPanorama', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class PhotoPanorama(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def List(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/List',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PhotoPanoramaListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckShooting(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/CheckShooting',
+            papi__pb2.PhotoPanoramaCheckShootingRequest.SerializeToString,
+            papi__pb2.PhotoPanoramaCheckShootingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateShootings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.PhotoPanorama/CreateShootings',
+            papi__pb2.PhotoPanoramaCreateShootingsRequest.SerializeToString,
+            papi__pb2.PhotoPanoramaCreateShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17535,6 +17980,11 @@ class StaffStub(object):
                 request_serializer=papi__pb2.StaffLevelLimitBreakRequest.SerializeToString,
                 response_deserializer=papi__pb2.StaffLevelLimitBreakResponse.FromString,
                 _registered_method=True)
+        self.Reset = channel.unary_unary(
+                '/api.Staff/Reset',
+                request_serializer=papi__pb2.Empty.SerializeToString,
+                response_deserializer=papi__pb2.StaffResetResponse.FromString,
+                _registered_method=True)
 
 
 class StaffServicer(object):
@@ -17552,6 +18002,12 @@ class StaffServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Reset(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_StaffServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -17564,6 +18020,11 @@ def add_StaffServicer_to_server(servicer, server):
                     servicer.LevelLimitBreak,
                     request_deserializer=papi__pb2.StaffLevelLimitBreakRequest.FromString,
                     response_serializer=papi__pb2.StaffLevelLimitBreakResponse.SerializeToString,
+            ),
+            'Reset': grpc.unary_unary_rpc_method_handler(
+                    servicer.Reset,
+                    request_deserializer=papi__pb2.Empty.FromString,
+                    response_serializer=papi__pb2.StaffResetResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -17620,6 +18081,33 @@ class Staff(object):
             '/api.Staff/LevelLimitBreak',
             papi__pb2.StaffLevelLimitBreakRequest.SerializeToString,
             papi__pb2.StaffLevelLimitBreakResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Reset(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Staff/Reset',
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.StaffResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19385,6 +19873,78 @@ class User(object):
             '/api.User/ProvideExternalReward',
             papi__pb2.UserProvideExternalRewardRequest.SerializeToString,
             papi__pb2.UserProvideExternalRewardResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class WarningStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.SetDisplayed = channel.unary_unary(
+                '/api.Warning/SetDisplayed',
+                request_serializer=papi__pb2.WarningSetDisplayedRequest.SerializeToString,
+                response_deserializer=papi__pb2.WarningSetDisplayedResponse.FromString,
+                _registered_method=True)
+
+
+class WarningServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def SetDisplayed(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WarningServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'SetDisplayed': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDisplayed,
+                    request_deserializer=papi__pb2.WarningSetDisplayedRequest.FromString,
+                    response_serializer=papi__pb2.WarningSetDisplayedResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Warning', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.Warning', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Warning(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def SetDisplayed(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Warning/SetDisplayed',
+            papi__pb2.WarningSetDisplayedRequest.SerializeToString,
+            papi__pb2.WarningSetDisplayedResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -142,6 +142,11 @@ enum BoxGachaItemType {
   BoxGachaItemType_Reward = 1;
   BoxGachaItemType_MarathonLiveBonusGroup = 2;
 }
+enum CampaignCodeGroupType {
+  CampaignCodeGroupType_Unknown = 0;
+  CampaignCodeGroupType_Unique = 1;
+  CampaignCodeGroupType_Common = 2;
+}
 enum CardDisplayType {
   CardDisplayType_Unknown = 0;
   CardDisplayType_BeforeLimitBreak = 1;
@@ -287,6 +292,8 @@ enum DokanTargetType {
   DokanTargetType_Company = 14;
   DokanTargetType_ShowcaseTop = 15;
   DokanTargetType_PhotoExpression = 16;
+  DokanTargetType_PhotoPanorama = 17;
+  DokanTargetType_FishHeaven = 18;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -315,6 +322,7 @@ enum ErrorCode {
   ErrorCode_DateChanged = 1003;
   ErrorCode_InMaintenance = 1004;
   ErrorCode_InFunctionMaintenance = 1005;
+  ErrorCode_PurchasedWebstore = 1006;
   ErrorCode_InvalidArgument = 2001;
   ErrorCode_InternalServerError = 2002;
   ErrorCode_RequestLocked = 2003;
@@ -434,7 +442,11 @@ enum FunctionLockType {
   FunctionLockType_CompanyBulkReceive = 45;
   FunctionLockType_CardEvolution = 46;
   FunctionLockType_PhotoExpressionShooting = 47;
+  FunctionLockType_ExtraCharacterLive = 48;
+  FunctionLockType_PhotoPanoramaShooting = 49;
   FunctionLockType_Satellite = 50;
+  FunctionLockType_TowerAutoPlay = 51;
+  FunctionLockType_PersonalAccessoryFilter = 52;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -749,6 +761,9 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_LoveExtraMission = 236;
   HelpDisplayTargetType_LoveExtraSetting = 237;
   HelpDisplayTargetType_LoveExtraStatus = 238;
+  HelpDisplayTargetType_PanoramaMusicSelect = 239;
+  HelpDisplayTargetType_PanoramaSetting = 241;
+  HelpDisplayTargetType_PanoramaTitle = 242;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -936,6 +951,8 @@ enum LinkType {
   LinkType_Showcase = 115;
   LinkType_ShowcaseToyShop = 116;
   LinkType_ExtraStory = 117;
+  LinkType_PhotoPanoramaShooting = 118;
+  LinkType_FishHeaven = 119;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -1215,6 +1232,10 @@ enum MissionType {
   MissionType_PhotoExpressionShootingCount = 86;
   MissionType_PhotoExpressionShootingSpecifiedPoseShootCount = 87;
   MissionType_PhotoExpressionShootingSpecifiedCharacterShootCount = 88;
+  MissionType_PhotoPanoramaShootingCount = 89;
+  MissionType_PhotoPanoramaShootingTotalCount = 90;
+  MissionType_PhotoSpecifiedMusicShootingCount = 91;
+  MissionType_FishHeavenScoreAchievement = 92;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -1297,6 +1318,14 @@ enum NotificationType {
   NotificationType_Activity = 1;
   NotificationType_LoginBonus = 2;
   NotificationType_Gift = 3;
+}
+enum PanoramaCameraType {
+  PanoramaCameraType_Unknown = 0;
+  PanoramaCameraType_StageCamera = 1;
+  PanoramaCameraType_DollyCamera = 2;
+  PanoramaCameraType_OshiCamera = 3;
+  PanoramaCameraType_DroneCamera = 4;
+  PanoramaCameraType_AutoCamera = 5;
 }
 enum ParameterType {
   ParameterType_Unknown = 0;
@@ -1426,6 +1455,7 @@ enum PlatformType {
   PlatformType_Unknown = 0;
   PlatformType_Ios = 1;
   PlatformType_Android = 2;
+  PlatformType_Sbps = 4;
 }
 enum PointType {
   PointType_Unknown = 0;
@@ -1914,6 +1944,10 @@ enum SkillEfficacyType {
   SkillEfficacyType_AddEffectValueVisualDown = 107;
   SkillEfficacyType_WeaknessEffectReflection = 108;
   SkillEfficacyType_BeatBoost = 109;
+  SkillEfficacyType_AddEffectValueTensionUp = 110;
+  SkillEfficacyType_StrengthEffectValueDecrease = 111;
+  SkillEfficacyType_StrengthEffectCountDecrease = 112;
+  SkillEfficacyType_ScoreGetByStrengthEffectCountLimitIncrease = 113;
 }
 enum SkillFailureType {
   SkillFailureType_Unknown = 0;
@@ -1967,6 +2001,12 @@ enum SkillTargetType {
   SkillTargetType_OpponentPositionAttributeVocal = 30;
   SkillTargetType_OpponentPositionAttributeDance = 31;
   SkillTargetType_OpponentPositionAttributeVisual = 32;
+  SkillTargetType_OpponentHigherStrengthEffectGrade = 33;
+  SkillTargetType_HigherStrengthEffectGrade = 34;
+  SkillTargetType_StaminaMoreThanEqual = 35;
+  SkillTargetType_StaminaLessThanEqual = 36;
+  SkillTargetType_OpponentStaminaMoreThanEqual = 37;
+  SkillTargetType_OpponentStaminaLessThanEqual = 38;
 }
 enum SkillTriggerType {
   SkillTriggerType_Unknown = 0;
@@ -2011,6 +2051,9 @@ enum SkillTriggerType {
   SkillTriggerType_StatusEffectGradeHigher = 39;
   SkillTriggerType_StatusEffectGradeLower = 40;
   SkillTriggerType_SomeoneStatusEffectGradeHigher = 41;
+  SkillTriggerType_AfterActiveSkillBySomeone = 42;
+  SkillTriggerType_AfterActiveSkillByOpponentSomeone = 43;
+  SkillTriggerType_AfterActiveSkillByOpponentSamePosition = 44;
 }
 enum SpecialSkillCameraOrientationType {
   SpecialSkillCameraOrientationType_Unknown = 0;
@@ -2100,6 +2143,8 @@ enum StatusEffectType {
   StatusEffectType_AddEffectValueAudienceAmountReduction = 55;
   StatusEffectType_WeaknessEffectReflection = 56;
   StatusEffectType_BeatBoost = 57;
+  StatusEffectType_AddEffectValueTensionUp = 58;
+  StatusEffectType_ScoreGetByStrengthEffectCountLimitUp = 59;
   StatusEffectType_DanceDown = 1001;
   StatusEffectType_VocalDown = 1002;
   StatusEffectType_VisualDown = 1003;
@@ -2235,6 +2280,8 @@ enum TutorialType {
   TutorialType_CardEvolution = 45;
   TutorialType_PhotoExpression = 46;
   TutorialType_Satellite = 47;
+  TutorialType_PhotoPanoramaShooting = 48;
+  TutorialType_FishHeaven = 49;
 }
 enum WatchAdvertisementType {
   WatchAdvertisementType_Unknown = 0;
