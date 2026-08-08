@@ -5107,6 +5107,207 @@ class Exchange(object):
             _registered_method=True)
 
 
+class ExcursionStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.List = channel.unary_unary(
+                '/api.Excursion/List',
+                request_serializer=ExcursionListRequest_serializer,
+                response_deserializer=ExcursionListResponse_deserializer,
+                _registered_method=True)
+        self.Start = channel.unary_unary(
+                '/api.Excursion/Start',
+                request_serializer=ExcursionStartRequest_serializer,
+                response_deserializer=ExcursionStartResponse_deserializer,
+                _registered_method=True)
+        self.SetWatchedGazeReaction = channel.unary_unary(
+                '/api.Excursion/SetWatchedGazeReaction',
+                request_serializer=ExcursionSetWatchedGazeReactionRequest_serializer,
+                response_deserializer=ExcursionSetWatchedGazeReactionResponse_deserializer,
+                _registered_method=True)
+        self.Finish = channel.unary_unary(
+                '/api.Excursion/Finish',
+                request_serializer=ExcursionFinishRequest_serializer,
+                response_deserializer=ExcursionFinishResponse_deserializer,
+                _registered_method=True)
+
+
+class ExcursionServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def List(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Start(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetWatchedGazeReaction(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Finish(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ExcursionServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=ExcursionListRequest_deserializer,
+                    response_serializer=ExcursionListResponse_serializer,
+            ),
+            'Start': grpc.unary_unary_rpc_method_handler(
+                    servicer.Start,
+                    request_deserializer=ExcursionStartRequest_deserializer,
+                    response_serializer=ExcursionStartResponse_serializer,
+            ),
+            'SetWatchedGazeReaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetWatchedGazeReaction,
+                    request_deserializer=ExcursionSetWatchedGazeReactionRequest_deserializer,
+                    response_serializer=ExcursionSetWatchedGazeReactionResponse_serializer,
+            ),
+            'Finish': grpc.unary_unary_rpc_method_handler(
+                    servicer.Finish,
+                    request_deserializer=ExcursionFinishRequest_deserializer,
+                    response_serializer=ExcursionFinishResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Excursion', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.Excursion', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Excursion(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def List(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/List',
+            papi__pb2.ExcursionListRequest.SerializeToString,
+            papi__pb2.ExcursionListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Start(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/Start',
+            papi__pb2.ExcursionStartRequest.SerializeToString,
+            papi__pb2.ExcursionStartResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetWatchedGazeReaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/SetWatchedGazeReaction',
+            papi__pb2.ExcursionSetWatchedGazeReactionRequest.SerializeToString,
+            papi__pb2.ExcursionSetWatchedGazeReactionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Finish(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/Finish',
+            papi__pb2.ExcursionFinishRequest.SerializeToString,
+            papi__pb2.ExcursionFinishResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class ExerciseStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -12756,6 +12957,16 @@ class PhotoStub(object):
                 request_serializer=PhotoCreateExpressionShootingsRequest_serializer,
                 response_deserializer=PhotoCreateExpressionShootingsResponse_deserializer,
                 _registered_method=True)
+        self.CheckExcursionShooting = channel.unary_unary(
+                '/api.Photo/CheckExcursionShooting',
+                request_serializer=PhotoCheckExcursionShootingRequest_serializer,
+                response_deserializer=PhotoCheckExcursionShootingResponse_deserializer,
+                _registered_method=True)
+        self.CreateExcursionShootings = channel.unary_unary(
+                '/api.Photo/CreateExcursionShootings',
+                request_serializer=PhotoCreateExcursionShootingsRequest_serializer,
+                response_deserializer=PhotoCreateExcursionShootingsResponse_deserializer,
+                _registered_method=True)
 
 
 class PhotoServicer(object):
@@ -12905,6 +13116,18 @@ class PhotoServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckExcursionShooting(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateExcursionShootings(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PhotoServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -13027,6 +13250,16 @@ def add_PhotoServicer_to_server(servicer, server):
                     servicer.CreateExpressionShootings,
                     request_deserializer=PhotoCreateExpressionShootingsRequest_deserializer,
                     response_serializer=PhotoCreateExpressionShootingsResponse_serializer,
+            ),
+            'CheckExcursionShooting': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckExcursionShooting,
+                    request_deserializer=PhotoCheckExcursionShootingRequest_deserializer,
+                    response_serializer=PhotoCheckExcursionShootingResponse_serializer,
+            ),
+            'CreateExcursionShootings': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateExcursionShootings,
+                    request_deserializer=PhotoCreateExcursionShootingsRequest_deserializer,
+                    response_serializer=PhotoCreateExcursionShootingsResponse_serializer,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -13677,6 +13910,60 @@ class Photo(object):
             '/api.Photo/CreateExpressionShootings',
             papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
             papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckExcursionShooting(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Photo/CheckExcursionShooting',
+            papi__pb2.PhotoCheckExcursionShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckExcursionShootingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateExcursionShootings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Photo/CreateExcursionShootings',
+            papi__pb2.PhotoCreateExcursionShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateExcursionShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -20592,6 +20879,30 @@ def ExchangeExecuteResponse_serializer(message):
 def ExchangeTryOnResponse_serializer(message):
     origin = papi__pb2.ExchangeTryOnResponse.SerializeToString(message)
     return serialize(origin)
+def ExcursionListRequest_serializer(message):
+    origin = papi__pb2.ExcursionListRequest.SerializeToString(message)
+    return serialize(origin)
+def ExcursionStartRequest_serializer(message):
+    origin = papi__pb2.ExcursionStartRequest.SerializeToString(message)
+    return serialize(origin)
+def ExcursionSetWatchedGazeReactionRequest_serializer(message):
+    origin = papi__pb2.ExcursionSetWatchedGazeReactionRequest.SerializeToString(message)
+    return serialize(origin)
+def ExcursionFinishRequest_serializer(message):
+    origin = papi__pb2.ExcursionFinishRequest.SerializeToString(message)
+    return serialize(origin)
+def ExcursionListResponse_serializer(message):
+    origin = papi__pb2.ExcursionListResponse.SerializeToString(message)
+    return serialize(origin)
+def ExcursionStartResponse_serializer(message):
+    origin = papi__pb2.ExcursionStartResponse.SerializeToString(message)
+    return serialize(origin)
+def ExcursionSetWatchedGazeReactionResponse_serializer(message):
+    origin = papi__pb2.ExcursionSetWatchedGazeReactionResponse.SerializeToString(message)
+    return serialize(origin)
+def ExcursionFinishResponse_serializer(message):
+    origin = papi__pb2.ExcursionFinishResponse.SerializeToString(message)
+    return serialize(origin)
 def Empty_serializer(message):
     origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
@@ -21600,6 +21911,12 @@ def PhotoCheckExpressionShootingRequest_serializer(message):
 def PhotoCreateExpressionShootingsRequest_serializer(message):
     origin = papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString(message)
     return serialize(origin)
+def PhotoCheckExcursionShootingRequest_serializer(message):
+    origin = papi__pb2.PhotoCheckExcursionShootingRequest.SerializeToString(message)
+    return serialize(origin)
+def PhotoCreateExcursionShootingsRequest_serializer(message):
+    origin = papi__pb2.PhotoCreateExcursionShootingsRequest.SerializeToString(message)
+    return serialize(origin)
 def PhotoSwitchLockResponse_serializer(message):
     origin = papi__pb2.PhotoSwitchLockResponse.SerializeToString(message)
     return serialize(origin)
@@ -21671,6 +21988,12 @@ def PhotoCheckExpressionShootingResponse_serializer(message):
     return serialize(origin)
 def PhotoCreateExpressionShootingsResponse_serializer(message):
     origin = papi__pb2.PhotoCreateExpressionShootingsResponse.SerializeToString(message)
+    return serialize(origin)
+def PhotoCheckExcursionShootingResponse_serializer(message):
+    origin = papi__pb2.PhotoCheckExcursionShootingResponse.SerializeToString(message)
+    return serialize(origin)
+def PhotoCreateExcursionShootingsResponse_serializer(message):
+    origin = papi__pb2.PhotoCreateExcursionShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
     origin = papi__pb2.Empty.SerializeToString(message)
@@ -23106,6 +23429,30 @@ def ExchangeExecuteRequest_deserializer(raw):
 def ExchangeTryOnRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.ExchangeTryOnRequest.FromString(data)
+def ExcursionListResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionListResponse.FromString(data)
+def ExcursionStartResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionStartResponse.FromString(data)
+def ExcursionSetWatchedGazeReactionResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionSetWatchedGazeReactionResponse.FromString(data)
+def ExcursionFinishResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionFinishResponse.FromString(data)
+def ExcursionListRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionListRequest.FromString(data)
+def ExcursionStartRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionStartRequest.FromString(data)
+def ExcursionSetWatchedGazeReactionRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionSetWatchedGazeReactionRequest.FromString(data)
+def ExcursionFinishRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.ExcursionFinishRequest.FromString(data)
 def ExerciseTopResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.ExerciseTopResponse.FromString(data)
@@ -24114,6 +24461,12 @@ def PhotoCheckExpressionShootingResponse_deserializer(raw):
 def PhotoCreateExpressionShootingsResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.PhotoCreateExpressionShootingsResponse.FromString(data)
+def PhotoCheckExcursionShootingResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoCheckExcursionShootingResponse.FromString(data)
+def PhotoCreateExcursionShootingsResponse_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoCreateExcursionShootingsResponse.FromString(data)
 def PhotoSwitchLockRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.PhotoSwitchLockRequest.FromString(data)
@@ -24186,6 +24539,12 @@ def PhotoCheckExpressionShootingRequest_deserializer(raw):
 def PhotoCreateExpressionShootingsRequest_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.PhotoCreateExpressionShootingsRequest.FromString(data)
+def PhotoCheckExcursionShootingRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoCheckExcursionShootingRequest.FromString(data)
+def PhotoCreateExcursionShootingsRequest_deserializer(raw):
+    data = deserialize(raw)
+    return papi__pb2.PhotoCreateExcursionShootingsRequest.FromString(data)
 def PhotoPanoramaListResponse_deserializer(raw):
     data = deserialize(raw)
     return papi__pb2.PhotoPanoramaListResponse.FromString(data)

@@ -5105,6 +5105,207 @@ class Exchange(object):
             _registered_method=True)
 
 
+class ExcursionStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.List = channel.unary_unary(
+                '/api.Excursion/List',
+                request_serializer=papi__pb2.ExcursionListRequest.SerializeToString,
+                response_deserializer=papi__pb2.ExcursionListResponse.FromString,
+                _registered_method=True)
+        self.Start = channel.unary_unary(
+                '/api.Excursion/Start',
+                request_serializer=papi__pb2.ExcursionStartRequest.SerializeToString,
+                response_deserializer=papi__pb2.ExcursionStartResponse.FromString,
+                _registered_method=True)
+        self.SetWatchedGazeReaction = channel.unary_unary(
+                '/api.Excursion/SetWatchedGazeReaction',
+                request_serializer=papi__pb2.ExcursionSetWatchedGazeReactionRequest.SerializeToString,
+                response_deserializer=papi__pb2.ExcursionSetWatchedGazeReactionResponse.FromString,
+                _registered_method=True)
+        self.Finish = channel.unary_unary(
+                '/api.Excursion/Finish',
+                request_serializer=papi__pb2.ExcursionFinishRequest.SerializeToString,
+                response_deserializer=papi__pb2.ExcursionFinishResponse.FromString,
+                _registered_method=True)
+
+
+class ExcursionServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def List(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Start(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetWatchedGazeReaction(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Finish(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ExcursionServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'List': grpc.unary_unary_rpc_method_handler(
+                    servicer.List,
+                    request_deserializer=papi__pb2.ExcursionListRequest.FromString,
+                    response_serializer=papi__pb2.ExcursionListResponse.SerializeToString,
+            ),
+            'Start': grpc.unary_unary_rpc_method_handler(
+                    servicer.Start,
+                    request_deserializer=papi__pb2.ExcursionStartRequest.FromString,
+                    response_serializer=papi__pb2.ExcursionStartResponse.SerializeToString,
+            ),
+            'SetWatchedGazeReaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetWatchedGazeReaction,
+                    request_deserializer=papi__pb2.ExcursionSetWatchedGazeReactionRequest.FromString,
+                    response_serializer=papi__pb2.ExcursionSetWatchedGazeReactionResponse.SerializeToString,
+            ),
+            'Finish': grpc.unary_unary_rpc_method_handler(
+                    servicer.Finish,
+                    request_deserializer=papi__pb2.ExcursionFinishRequest.FromString,
+                    response_serializer=papi__pb2.ExcursionFinishResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Excursion', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('api.Excursion', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Excursion(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def List(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/List',
+            papi__pb2.ExcursionListRequest.SerializeToString,
+            papi__pb2.ExcursionListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Start(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/Start',
+            papi__pb2.ExcursionStartRequest.SerializeToString,
+            papi__pb2.ExcursionStartResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetWatchedGazeReaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/SetWatchedGazeReaction',
+            papi__pb2.ExcursionSetWatchedGazeReactionRequest.SerializeToString,
+            papi__pb2.ExcursionSetWatchedGazeReactionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Finish(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Excursion/Finish',
+            papi__pb2.ExcursionFinishRequest.SerializeToString,
+            papi__pb2.ExcursionFinishResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
 class ExerciseStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -12754,6 +12955,16 @@ class PhotoStub(object):
                 request_serializer=papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
                 response_deserializer=papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
                 _registered_method=True)
+        self.CheckExcursionShooting = channel.unary_unary(
+                '/api.Photo/CheckExcursionShooting',
+                request_serializer=papi__pb2.PhotoCheckExcursionShootingRequest.SerializeToString,
+                response_deserializer=papi__pb2.PhotoCheckExcursionShootingResponse.FromString,
+                _registered_method=True)
+        self.CreateExcursionShootings = channel.unary_unary(
+                '/api.Photo/CreateExcursionShootings',
+                request_serializer=papi__pb2.PhotoCreateExcursionShootingsRequest.SerializeToString,
+                response_deserializer=papi__pb2.PhotoCreateExcursionShootingsResponse.FromString,
+                _registered_method=True)
 
 
 class PhotoServicer(object):
@@ -12903,6 +13114,18 @@ class PhotoServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckExcursionShooting(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateExcursionShootings(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PhotoServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -13025,6 +13248,16 @@ def add_PhotoServicer_to_server(servicer, server):
                     servicer.CreateExpressionShootings,
                     request_deserializer=papi__pb2.PhotoCreateExpressionShootingsRequest.FromString,
                     response_serializer=papi__pb2.PhotoCreateExpressionShootingsResponse.SerializeToString,
+            ),
+            'CheckExcursionShooting': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckExcursionShooting,
+                    request_deserializer=papi__pb2.PhotoCheckExcursionShootingRequest.FromString,
+                    response_serializer=papi__pb2.PhotoCheckExcursionShootingResponse.SerializeToString,
+            ),
+            'CreateExcursionShootings': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateExcursionShootings,
+                    request_deserializer=papi__pb2.PhotoCreateExcursionShootingsRequest.FromString,
+                    response_serializer=papi__pb2.PhotoCreateExcursionShootingsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -13675,6 +13908,60 @@ class Photo(object):
             '/api.Photo/CreateExpressionShootings',
             papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
             papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckExcursionShooting(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Photo/CheckExcursionShooting',
+            papi__pb2.PhotoCheckExcursionShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckExcursionShootingResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateExcursionShootings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.Photo/CreateExcursionShootings',
+            papi__pb2.PhotoCreateExcursionShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateExcursionShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
